@@ -67,6 +67,8 @@ dependencies {
     //ViewModel
     // ViewModel utilities for Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    // Koin for Jetpack Compose
+    implementation(libs.koin.androidx.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
