@@ -2,4 +2,6 @@
     <string name="app_name">WeatherApp</string>
     <string name="dialog_ok">Confirmar</string>
     <string name="dialog_cancelar">Cancelar</string>
+    <string name="weather_title">Clima</string>
+    <string name="cities_title">Ciudades</string>
 </resources>
