@@ -1,10 +1,10 @@
 package com.arnedo.weatherapp.common.entities
 
 data class Current(
-    val temp_c: Double = 0.0,
+    val temp_c: Float = 0f,
     val is_day: Int = 0,
     val condition: Condition = Condition(),
-    val wind_kph: Double = 0.0
+    val wind_kph: Float = 0f
 )
 
 
