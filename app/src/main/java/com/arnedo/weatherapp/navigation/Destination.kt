@@ -5,7 +5,7 @@ import androidx.compose.material.icons.filled.LocationCity
 import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.arnedo.weatherapp.R
-import com.arnedo.weatherapp.utils.Constants
+import com.arnedo.weatherapp.common.utils.Constants
 
 enum class Destination(
     val route: String,
