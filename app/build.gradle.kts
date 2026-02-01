@@ -69,6 +69,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     // Koin for Jetpack Compose
     implementation(libs.koin.androidx.compose)
+    //Navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.ui)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
