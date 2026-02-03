@@ -3,6 +3,7 @@ package com.arnedo.weatherapp.weather.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arnedo.weatherapp.R
+import com.arnedo.weatherapp.common.utils.FormatUtils
 import com.arnedo.weatherapp.weather.model.RemoteDatabase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,10 +12,14 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class WeatherViewModel(
-    private val rdb : RemoteDatabase
+    private val rdb : RemoteDatabase = RemoteDatabase(null, FormatUtils())
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(WeatherUiState())
     val uiState: StateFlow<WeatherUiState> = _uiState.asStateFlow()
+
+    init {
+        searchWeather("Mexico")
+    }
 
 
     fun searchWeather(name: String) {
