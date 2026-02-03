@@ -6,6 +6,6 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val weatherModule = module {
-    single{ RemoteDatabase(null,get()) }
+    single{ RemoteDatabase(get(),get()) }
     viewModel{ WeatherViewModel(get()) }
 }
