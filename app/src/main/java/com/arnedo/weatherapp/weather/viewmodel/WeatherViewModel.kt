@@ -37,4 +37,10 @@ class WeatherViewModel(
             }
         }
     }
+    fun clearMsg(){
+        viewModelScope.launch {
+            _uiState.update { it.copy(msgRes = R.string.msg_empty) }
+
+        }
+    }
 }
