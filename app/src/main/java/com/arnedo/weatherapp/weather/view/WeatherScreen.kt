@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -29,11 +31,13 @@ import com.arnedo.weatherapp.R
 import com.arnedo.weatherapp.common.entities.WeatherCity
 import com.arnedo.weatherapp.ui.components.MyCoilImage
 import com.arnedo.weatherapp.ui.components.MyProgressFullScreen
+import com.arnedo.weatherapp.ui.components.MySnackbar
 import com.arnedo.weatherapp.ui.components.MyTextTitle
 import com.arnedo.weatherapp.ui.theme.CommonPaddingDefault
 import com.arnedo.weatherapp.ui.theme.CommonPaddingLarge
 import com.arnedo.weatherapp.ui.theme.CommonPaddingMin
 import com.arnedo.weatherapp.ui.theme.CommonPaddingXLarge
+import com.arnedo.weatherapp.ui.theme.MessageVerticalSpace
 import com.arnedo.weatherapp.ui.theme.Typography
 import com.arnedo.weatherapp.ui.theme.WeatherAppTheme
 import com.arnedo.weatherapp.weather.viewmodel.WeatherViewModel
@@ -52,6 +56,11 @@ fun WeatherView(
             verticalArrangement = Arrangement.spacedBy(CommonPaddingDefault)){
             MyTextTitle(R.string.weather_title)
             WeatherInfoView(uiState.data)
+            MySnackbar(modifier = Modifier
+                .fillMaxWidth()
+                .height(MessageVerticalSpace),
+                msgRes = uiState.msgRes,
+                onDismiss = { vm.clearMsg()})
             SearchView { name ->
                 vm.searchWeather(name)
             }
