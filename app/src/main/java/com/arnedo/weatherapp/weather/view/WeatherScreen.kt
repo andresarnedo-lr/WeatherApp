@@ -26,11 +26,12 @@ import com.arnedo.weatherapp.ui.theme.CommonPaddingMin
 import com.arnedo.weatherapp.ui.theme.Typography
 import com.arnedo.weatherapp.ui.theme.WeatherAppTheme
 import com.arnedo.weatherapp.weather.viewmodel.WeatherViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun WeatherView(
     modifier: Modifier,
-    vm : WeatherViewModel = viewModel()
+    vm : WeatherViewModel = koinViewModel()
     ){
     val uiState by vm.uiState.collectAsState()
     Box(modifier
