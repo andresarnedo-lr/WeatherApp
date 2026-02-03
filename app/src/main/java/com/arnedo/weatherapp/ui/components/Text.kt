@@ -8,8 +8,8 @@ import com.arnedo.weatherapp.ui.theme.Typography
 @Composable
 
 fun MyTextTitle( titleRes: Int) {
-    Text(
-        stringResource(titleRes),
-        style = Typography.headlineMedium
-    )
+        Text(
+            stringResource(titleRes),
+            style = Typography.headlineMedium
+        )
 }
