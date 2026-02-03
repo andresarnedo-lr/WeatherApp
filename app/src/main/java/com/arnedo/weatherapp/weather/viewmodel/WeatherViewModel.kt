@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class WeatherViewModel(
-    private val rdb : RemoteDatabase = RemoteDatabase(null, FormatUtils())
+    private val rdb : RemoteDatabase
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(WeatherUiState())
     val uiState: StateFlow<WeatherUiState> = _uiState.asStateFlow()
