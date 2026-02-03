@@ -21,12 +21,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.arnedo.weatherapp.R
 import com.arnedo.weatherapp.common.entities.WeatherCity
 import com.arnedo.weatherapp.ui.components.MyCoilImage
+import com.arnedo.weatherapp.ui.components.MyProgressFullScreen
 import com.arnedo.weatherapp.ui.components.MyTextTitle
 import com.arnedo.weatherapp.ui.theme.CommonPaddingDefault
 import com.arnedo.weatherapp.ui.theme.CommonPaddingLarge
@@ -55,6 +57,7 @@ fun WeatherView(
             }
 
         }
+        MyProgressFullScreen(visible = uiState.inProgress)
     }
 }
 
@@ -74,7 +77,9 @@ private fun WeatherInfoView(weatherCity: WeatherCity){
         MyCoilImage(url = weatherCity.iconHttps,
             modifier = Modifier
                 .size(CommonPaddingXLarge)
-                .padding(top = CommonPaddingMin)
+                .padding(top = CommonPaddingMin),
+            shape = RectangleShape,
+
         )
 
         Text(text = weatherCity.description,
