@@ -10,9 +10,15 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.CloudDownload
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,8 +34,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.arnedo.weatherapp.R
+import com.arnedo.weatherapp.common.entities.City
 import com.arnedo.weatherapp.common.entities.WeatherCity
+import com.arnedo.weatherapp.common.model.getAllCityPreview
 import com.arnedo.weatherapp.ui.components.MyCoilImage
+import com.arnedo.weatherapp.ui.components.MyDropDownMenu
 import com.arnedo.weatherapp.ui.components.MyProgressFullScreen
 import com.arnedo.weatherapp.ui.components.MySnackbar
 import com.arnedo.weatherapp.ui.components.MyTextTitle
@@ -40,6 +49,7 @@ import com.arnedo.weatherapp.ui.theme.CommonPaddingXLarge
 import com.arnedo.weatherapp.ui.theme.MessageVerticalSpace
 import com.arnedo.weatherapp.ui.theme.Typography
 import com.arnedo.weatherapp.ui.theme.WeatherAppTheme
+import com.arnedo.weatherapp.weather.viewmodel.WeatherUiState
 import com.arnedo.weatherapp.weather.viewmodel.WeatherViewModel
 import org.koin.androidx.compose.koinViewModel
 
@@ -56,6 +66,15 @@ fun WeatherView(
             verticalArrangement = Arrangement.spacedBy(CommonPaddingDefault)){
             MyTextTitle(R.string.weather_title)
             WeatherInfoView(uiState.data)
+            ActionsView(
+                uiState = uiState,
+                onSelect = { city ->
+
+                },
+                onSave = {
+
+                }
+                )
             MySnackbar(modifier = Modifier
                 .fillMaxWidth()
                 .height(MessageVerticalSpace),
@@ -124,6 +143,32 @@ private fun SearchView(
     }
 }
 
+@Composable
+private fun ActionsView(
+    uiState : WeatherUiState,
+    onSelect :(City) -> Unit,
+    onSave:() -> Unit
+    ){
+    var selectedItem by remember { mutableStateOf<City?>(null) }
+    var isExpanded by remember {mutableStateOf(false)}
+    Row(horizontalArrangement = Arrangement.spacedBy(CommonPaddingMin)){
+        MyDropDownMenu(
+            items = getAllCityPreview(),
+            labelRes = R.string.cities_city,
+            onSelect= { city ->
+                onSelect(city)
+            }
+        )
+        OutlinedIconButton(
+            onClick = {onSave},
+            enabled = uiState.data.name.isNotBlank()
+            ) {
+            Icon(Icons.Default.CloudDownload, contentDescription = null)
+        }
+    }
+
+}
+
 
 
 
@@ -149,5 +194,12 @@ private fun WeatherInfoPreview(){
 private fun SearchPreview(){
     WeatherAppTheme {
         SearchView(){}
+    }
+}
+@Preview(showBackground = true)
+@Composable
+private fun ActionsPreview(){
+    WeatherAppTheme {
+        ActionsView(WeatherUiState(),{}){}
     }
 }
