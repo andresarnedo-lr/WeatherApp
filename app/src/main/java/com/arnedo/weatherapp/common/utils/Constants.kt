@@ -21,4 +21,16 @@ object Constants {
     const val DURATION_SHORT = 3_000L
     const val DURATION_LONG = 8_000L
 
+    //ROOM
+    const val DB_NAME = "db_wheater_app"
+    const val DB_INIT_VERSION = 1
+    //E = Entitiy
+    const val E_CITY = "city_entity"
+    const val E_WEATHER = "city_weather"
+    // P = Property
+    const val P_NAME = "name"
+    const val P_COUNTRY = "country"
+    const val P_CITY_ID = "cityId"
+
+
 }
