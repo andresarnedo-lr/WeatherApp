@@ -1,13 +1,15 @@
 package com.arnedo.weatherapp.common.utils
 
+import com.arnedo.weatherapp.common.entities.City
 import com.arnedo.weatherapp.common.entities.WeatherCity
 import com.arnedo.weatherapp.common.entities.WeatherResponse
 
 class FormatUtils {
-    fun responseToWeatherCity(response : WeatherResponse) : WeatherCity? {
+    fun responseToWeatherCity(response: WeatherResponse): WeatherCity? {
         try {
             if (response.location.lat > 90 || response.location.lat < -90 ||
-                response.location.lon > 180 || response.location.lon < -180) throw Exception()
+                response.location.lon > 180 || response.location.lon < -180
+            ) throw Exception()
 
             val weatherCity = WeatherCity(
                 temp_c = response.current.temp_c,
@@ -24,5 +26,14 @@ class FormatUtils {
         } catch (e: Exception) {
             return null
         }
+    }
+
+    fun weatherCityToCity(weatherCity: WeatherCity): City {
+        return City(
+            name = weatherCity.name,
+            country = weatherCity.country,
+            lat = weatherCity.lat,
+            lon = weatherCity.lon
+        )
     }
 }
