@@ -1,13 +1,16 @@
 package com.arnedo.weatherapp.common.entities
 
-data class Location(
+data class City(
     val name: String = "",
     val country: String = "",
     val lat: Double = 0.0,
     val lon: Double = 0.0,
     val tz_id: String = ""
-
-)
+){
+    override fun toString(): String {
+        return "$name, $country"
+    }
+}
 
 //"name": "London",
 //"region": "City of London, Greater London",
