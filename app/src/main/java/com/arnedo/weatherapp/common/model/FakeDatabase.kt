@@ -1,5 +1,6 @@
 package com.arnedo.weatherapp.common.model
 
+import com.arnedo.weatherapp.common.entities.City
 import com.arnedo.weatherapp.common.entities.WeatherCity
 
 /**
@@ -18,13 +19,13 @@ import com.arnedo.weatherapp.common.entities.WeatherCity
  * www.alainnicolastello.com
  */
 
-//val cityPreview = City("Lima", "Perú", 1.2118, -2.1921)
-//
-//fun getAllCityPreview() = listOf(
-//    City("Cdmx", "México", 19.4334565, -99.1331708),
-//    City("Madrid", "España", 40.416775, -3.703790),
-//    cityPreview
-//)
+val cityPreview = City("Lima", "Perú", 1.2118, -2.1921)
+
+fun getAllCityPreview() = listOf(
+    City("Cdmx", "México", 19.4334565, -99.1331708),
+    City("Madrid", "España", 40.416775, -3.703790),
+    cityPreview
+)
 
 
 val weatherCityPreview = WeatherCity(
