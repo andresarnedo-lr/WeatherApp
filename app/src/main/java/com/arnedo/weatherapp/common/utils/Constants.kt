@@ -26,10 +26,12 @@ object Constants {
     const val DB_INIT_VERSION = 1
     //E = Entitiy
     const val E_CITY = "city_entity"
-    const val E_WEATHER = "city_weather"
+    const val E_WEATHER = "weather_entity"
     // P = Property
     const val P_NAME = "name"
     const val P_COUNTRY = "country"
+    const val P_LAT = "lat"
+    const val P_LON = "lon"
     const val P_CITY_ID = "cityId"
 
 
