@@ -1,17 +1,18 @@
 package com.arnedo.weatherapp.common.entities
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.arnedo.weatherapp.common.utils.Constants
 
 @Entity(tableName = Constants.E_CITY)
 data class City(
     @PrimaryKey(autoGenerate = true) var id: Long = 0,
-    val name: String = "",
-    val country: String = "",
-    val lat: Double = 0.0,
-    val lon: Double = 0.0,
-    val tz_id: String = ""
+    var name: String = "",
+    var country: String = "",
+    var lat: Double = 0.0,
+    var lon: Double = 0.0,
+    @Ignore var tz_id: String = ""
 ){
     override fun toString(): String {
         return "$name, $country"
