@@ -69,10 +69,10 @@ fun WeatherView(
             ActionsView(
                 uiState = uiState,
                 onSelect = { city ->
-
+                    vm.getWeatherByCity(city)
                 },
                 onSave = {
-
+                    vm.saveWeatherCity(uiState.data)
                 }
                 )
             MySnackbar(modifier = Modifier
@@ -153,14 +153,14 @@ private fun ActionsView(
     var isExpanded by remember {mutableStateOf(false)}
     Row(horizontalArrangement = Arrangement.spacedBy(CommonPaddingMin)){
         MyDropDownMenu(
-            items = getAllCityPreview(),
+            items = uiState.items,
             labelRes = R.string.cities_city,
             onSelect= { city ->
                 onSelect(city)
             }
         )
         OutlinedIconButton(
-            onClick = {onSave},
+            onClick = { onSave() },
             enabled = uiState.data.name.isNotBlank()
             ) {
             Icon(Icons.Default.CloudDownload, contentDescription = null)
