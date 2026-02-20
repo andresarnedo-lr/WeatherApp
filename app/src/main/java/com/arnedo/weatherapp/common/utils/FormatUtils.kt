@@ -1,6 +1,7 @@
 package com.arnedo.weatherapp.common.utils
 
 import com.arnedo.weatherapp.common.entities.City
+import com.arnedo.weatherapp.common.entities.Weather
 import com.arnedo.weatherapp.common.entities.WeatherCity
 import com.arnedo.weatherapp.common.entities.WeatherResponse
 
@@ -34,6 +35,15 @@ class FormatUtils {
             country = weatherCity.country,
             lat = weatherCity.lat,
             lon = weatherCity.lon
+        )
+    }
+
+    fun weatherCityToWeather(weatherCity: WeatherCity): Weather {
+        return Weather(
+            temp_c = weatherCity.temp_c,
+            iconHttps = weatherCity.iconHttps,
+            description = weatherCity.description,
+            wind_kph = weatherCity.wind_kph
         )
     }
 }
