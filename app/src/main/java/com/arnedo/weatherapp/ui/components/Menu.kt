@@ -29,7 +29,7 @@ fun <T>MyDropDownMenu(
     var isExpanded by remember {mutableStateOf(false)}
     Box(){
         OutlinedButton(onClick = {isExpanded = !isExpanded}) {
-            Text(text = selectedItem.toString() ?: stringResource(labelRes))
+            Text(text = selectedItem?.toString() ?: stringResource(labelRes))
             Icon(Icons.Default.ArrowDropDown, contentDescription = null)
         }
         DropdownMenu(
