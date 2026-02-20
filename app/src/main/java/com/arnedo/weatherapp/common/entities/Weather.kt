@@ -6,10 +6,10 @@ import com.arnedo.weatherapp.common.utils.Constants
 
 @Entity(tableName = Constants.E_WEATHER)
 data class Weather(
-    @PrimaryKey(autoGenerate = true) val id : Long = 0,
-    val temp_c: Float = 0f,
-    val description: String = "",
-    val wind_kph: Float = 0f,
-    val iconHttps: String = "",
-    val cityId : Long = 0
+    @PrimaryKey(autoGenerate = true) var id : Long = 0,
+    var temp_c: Float = 0f,
+    var description: String = "",
+    var wind_kph: Float = 0f,
+    var iconHttps: String = "",
+    var cityId : Long = 0
 )
