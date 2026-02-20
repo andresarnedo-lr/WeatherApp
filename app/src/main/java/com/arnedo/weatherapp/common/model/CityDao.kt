@@ -19,4 +19,9 @@ interface CityDao {
     suspend fun deleteCity(city: City) : Int
     @Query("SELECT * FROM ${Constants.E_CITY}" )
     suspend fun getAllCities() : List<City>
+
+    @Query("SELECT * FROM ${Constants.E_CITY}" +
+            " WHERE ${Constants.P_LAT} = :lat AND ${Constants.P_LON} = :lon " +
+            "LIMIT 1")
+    suspend fun getCityByLatLon(lat: Double, lon: Double) : City?
 }
