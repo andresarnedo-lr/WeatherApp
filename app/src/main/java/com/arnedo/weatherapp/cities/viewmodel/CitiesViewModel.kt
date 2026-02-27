@@ -15,10 +15,10 @@ import kotlinx.coroutines.launch
 class CitiesViewModel(
     private val db: LocalDatabase,
     private val utils: IntentUtils
-) : ViewModel() {
+) : ViewModel(), ICitiesViewModel {
 
     private val _uiState = MutableStateFlow(CityUiState())
-    fun getUiState(): StateFlow<CityUiState> = _uiState.asStateFlow()
+    override fun getUiState(): StateFlow<CityUiState> = _uiState.asStateFlow()
 
     init {
         getAllCities()
@@ -38,7 +38,19 @@ class CitiesViewModel(
         }
     }
 
-    fun showMap(city: City) {
+    override fun showMap(city: City) {
         utils.showMap(city.lat, city.lon, city.name)
+    }
+
+    override fun clearMsg() {
+        viewModelScope.launch {
+            _uiState.update {
+                it.copy(msgRes = R.string.msg_empty)
+            }
+        }
+    }
+
+    override fun deleteCity(city: City) {
+
     }
 }
