@@ -11,6 +11,7 @@
     <string name="cities_city">Ciudad</string>
     <string name="weather_local_save_success">Datos almacenados</string>
     <string name="weather_local_save_error">Error al guardar</string>
-    <string name="weather_empty_list">No hay registros</string>
+    <string name="weather_empty_list">No hay registros de clima disponibles</string>
+    <string name="cities_empty_list">No hay registros de ciudades disponibles</string>
     <string name="weather_local_by_city_error">Intenta con otra ciudad</string>
 </resources>
