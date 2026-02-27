@@ -14,18 +14,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.arnedo.weatherapp.R
 import com.arnedo.weatherapp.cities.viewmodel.CitiesViewModel
+import com.arnedo.weatherapp.cities.viewmodel.CityUiState
+import com.arnedo.weatherapp.cities.viewmodel.ICitiesViewModel
+import com.arnedo.weatherapp.common.entities.City
+import com.arnedo.weatherapp.common.model.getAllCityPreview
 import com.arnedo.weatherapp.ui.components.MyProgressFullScreen
 import com.arnedo.weatherapp.ui.components.MyTextTitle
 import com.arnedo.weatherapp.ui.theme.WeatherAppTheme
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun CitiesView(
     modifier: Modifier,
-    vm : CitiesViewModel = koinViewModel()) {
+    vm : ICitiesViewModel = koinViewModel<CitiesViewModel>()) {
     val uiState by vm.getUiState().collectAsState()
     Box(modifier.fillMaxSize()) {
-        Column {
+        Column(modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
             MyTextTitle(R.string.cities_title)
             LazyColumn {
                 items(uiState.items.size) { index ->
@@ -41,6 +47,15 @@ fun CitiesView(
 @Composable
 fun CitiesPreview(){
     WeatherAppTheme{
-        CitiesView(Modifier.padding(top = 24.dp))
+        CitiesView(Modifier.padding(top = 24.dp),
+        vm = CitiesVmPreview())
+
     }
+}
+
+private class CitiesVmPreview: ICitiesViewModel {
+    override fun getUiState() = MutableStateFlow(CityUiState(getAllCityPreview()))
+    override fun showMap(city: City){}
+    override fun clearMsg(){}
+    override fun deleteCity(city: City){}
 }
