@@ -6,11 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.arnedo.weatherapp.R
 import com.arnedo.weatherapp.common.entities.City
 import com.arnedo.weatherapp.common.entities.WeatherCity
-import com.arnedo.weatherapp.common.utils.FormatUtils
-import com.arnedo.weatherapp.common.utils.NetworkUtils
 import com.arnedo.weatherapp.weather.domain.DataSource
-import com.arnedo.weatherapp.weather.model.LocalDatabase
-import com.arnedo.weatherapp.weather.model.RemoteDatabase
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
