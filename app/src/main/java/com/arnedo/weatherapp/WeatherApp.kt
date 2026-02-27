@@ -1,6 +1,7 @@
 package com.arnedo.weatherapp
 
 import android.app.Application
+import com.arnedo.weatherapp.cities.di.citiesModule
 import com.arnedo.weatherapp.common.di.componentsModule
 import com.arnedo.weatherapp.common.di.localDataSourceModule
 import com.arnedo.weatherapp.common.di.utilsModule
@@ -15,7 +16,7 @@ class WeatherApp : Application() {
         startKoin {
             androidContext(this@WeatherApp)
             modules(weatherModule, utilsModule, remoteDataSourceModule,
-                localDataSourceModule, componentsModule
+                localDataSourceModule, componentsModule, citiesModule
             )
         }
     }
