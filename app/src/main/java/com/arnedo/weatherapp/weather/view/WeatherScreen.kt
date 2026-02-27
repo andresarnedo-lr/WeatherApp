@@ -172,16 +172,6 @@ private fun ActionsView(
 
 
 
-
-//
-//@Preview(showBackground = true)
-//@Composable
-//private fun WeatherPreview(){
-//    WeatherAppTheme {
-//        WeatherView(Modifier)
-//    }
-//}
-
 @Preview(showBackground = true)
 @Composable
 private fun WeatherInfoPreview(){
