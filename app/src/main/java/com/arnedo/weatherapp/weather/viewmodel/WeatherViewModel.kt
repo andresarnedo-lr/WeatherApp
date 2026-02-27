@@ -7,6 +7,8 @@ import com.arnedo.weatherapp.R
 import com.arnedo.weatherapp.common.entities.City
 import com.arnedo.weatherapp.common.entities.WeatherCity
 import com.arnedo.weatherapp.common.utils.FormatUtils
+import com.arnedo.weatherapp.common.utils.NetworkUtils
+import com.arnedo.weatherapp.weather.domain.DataSource
 import com.arnedo.weatherapp.weather.model.LocalDatabase
 import com.arnedo.weatherapp.weather.model.RemoteDatabase
 import kotlinx.coroutines.Job
@@ -16,10 +18,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class WeatherViewModel(
-    private val rdb : RemoteDatabase,
-    private val ldb : LocalDatabase
-) : ViewModel() {
+class WeatherViewModel(private val ds : DataSource) : ViewModel() {
     private val _uiState = MutableStateFlow(WeatherUiState())
     val uiState: StateFlow<WeatherUiState> = _uiState.asStateFlow()
 
@@ -29,7 +28,7 @@ class WeatherViewModel(
 
     private fun getAllCities() {
         executeAction {
-            ldb.getAllCities { result ->
+            ds.getAllCities { result ->
                 if (result.isNotEmpty()) {
                     _uiState.update { it.copy(items = result) }
                 } else {
@@ -42,11 +41,11 @@ class WeatherViewModel(
 
     fun searchWeather(name: String) {
         executeAction {
-            rdb.searchWeatherByName(name) { result ->
+            ds.searchWeatherByName(name) { result ->
                 if (result != null) {
                     _uiState.update { it.copy(data = result) }
                 } else {
-                    _uiState.update { it.copy(msgRes = R.string.weather_search_error) }
+                    _uiState.update { it.copy(msgRes = R.string.weather_search_error, data = WeatherCity()) }
                 }
             }
         }
@@ -55,9 +54,14 @@ class WeatherViewModel(
 
     fun saveWeatherCity(weatherCity: WeatherCity) {
         executeAction {
-            ldb.addWeatherAndCity(weatherCity) { success ->
+            ds.addWeatherAndCity(weatherCity) { success ->
                 if (success) {
-                    _uiState.update { it.copy(msgRes = R.string.weather_local_save_success) }
+                    _uiState.update { it.copy(
+                        msgRes = R.string.weather_local_save_success,
+                        data = WeatherCity()
+                    ) }
+                    getAllCities()
+
                 } else {
                     _uiState.update { it.copy(msgRes = R.string.weather_local_save_error) }
                 }
@@ -67,7 +71,7 @@ class WeatherViewModel(
 
     fun getWeatherByCity(city: City) {
         executeAction {
-            ldb.getWeatherCityByCityId(city.id) { result ->
+            ds.getWeatherByCity(city) { result ->
                 if (result != null) {
                     _uiState.update { it.copy(data = result) }
                 } else {
