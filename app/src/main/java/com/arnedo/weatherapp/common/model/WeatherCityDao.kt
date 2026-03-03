@@ -19,4 +19,12 @@ interface WeatherCityDao : CityDao, WeatherDao {
         }
         return 0
     }
+    @Transaction
+    suspend fun deleteCityAndWeather(city: City) : Int {
+        getWeatherByCityId(cityId = city.id)?.let { weather ->
+            deleteWeather(weather)
+            return deleteCity(city)
+        }
+        return 0
+    }
 }
