@@ -36,10 +36,13 @@ fun CitiesView(
             LazyColumn {
                 items(uiState.items.size) { index ->
                     val city = uiState.items[index]
-                    ItemCityView(city)
+                    ItemCityView(
+                        city = city,
+                        onMap = { vm.showMap(city) }
+                        )
                 }
             }
-            MyProgressFullScreen(visible = false)
+            MyProgressFullScreen(visible = uiState.inProgress)
         }
     }
 }
