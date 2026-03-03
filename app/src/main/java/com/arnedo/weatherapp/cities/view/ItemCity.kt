@@ -18,7 +18,10 @@ import com.arnedo.weatherapp.ui.theme.Typography
 import com.arnedo.weatherapp.ui.theme.WeatherAppTheme
 
 @Composable
-fun ItemCityView(city: City){
+fun ItemCityView(
+    city: City,
+    onMap: (City) -> Unit
+){
     Card(modifier = Modifier.padding(CommonPaddingMin)) {
         Row{
             Text(text = city.toString(),
@@ -27,7 +30,7 @@ fun ItemCityView(city: City){
                     .padding(CommonPaddingMin),
                 style = Typography.headlineSmall
             )
-            IconButton(onClick = {}) {
+            IconButton(onClick = {onMap(city)}) {
                 Icon(Icons.Default.ArrowOutward, contentDescription = null)
             }
         }
@@ -38,6 +41,6 @@ fun ItemCityView(city: City){
 @Composable
 fun ItemCityPreview(){
     WeatherAppTheme() {
-        ItemCityView(cityPreview)
+        ItemCityView(cityPreview){}
     }
 }
