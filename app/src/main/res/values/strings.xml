@@ -17,4 +17,7 @@
     <string name="msg_no_app">No hay apps compatibles</string>
     <string name="cities_delete_success">Ciudad eliminada.</string>
     <string name="cities_delete_error">No se pudo eliminar.</string>
+    <string name="dialog_msg_warning">Advertencia esta accion en irreversible</string>
+    <string name="dialog_delete_title">Eliminar ?</string>
+    <string name="dialog_delete_confirm">Eliminar</string>
 </resources>
