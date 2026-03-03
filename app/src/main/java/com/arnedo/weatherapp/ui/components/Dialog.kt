@@ -8,14 +8,14 @@ import androidx.compose.ui.res.stringResource
 import com.arnedo.weatherapp.R
 
 @Composable
-fun MyDialogInfo(info: String,
+fun MyDialogInfo(infoRes: Int,
                   titleRes: Int,
                   confirmRes : Int = R.string.dialog_ok,
                   onDismissRequest: (Boolean) -> Unit) {
     AlertDialog(
         onDismissRequest = { onDismissRequest(false) },
         title = { Text(stringResource(titleRes)) },
-        text = { Text(info) },
+        text = { Text(stringResource(infoRes)) },
         confirmButton = {
             TextButton(onClick = { onDismissRequest(true) }) {
                 Text(stringResource(confirmRes))
