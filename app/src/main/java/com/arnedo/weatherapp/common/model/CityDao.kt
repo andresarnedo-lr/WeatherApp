@@ -7,6 +7,7 @@ import androidx.room.Query
 import androidx.room.Update
 import com.arnedo.weatherapp.common.entities.City
 import com.arnedo.weatherapp.common.utils.Constants
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
@@ -19,6 +20,9 @@ interface CityDao {
     suspend fun deleteCity(city: City) : Int
     @Query("SELECT * FROM ${Constants.E_CITY}" )
     suspend fun getAllCities() : List<City>
+
+    @Query("SELECT * FROM ${Constants.E_CITY}")
+    fun getAllCitiesRealtime() : Flow<List<City>>
 
     @Query("SELECT * FROM ${Constants.E_CITY}" +
             " WHERE ${Constants.P_LAT} = :lat AND ${Constants.P_LON} = :lon " +
