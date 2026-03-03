@@ -38,7 +38,10 @@ fun CitiesView(
                     val city = uiState.items[index]
                     ItemCityView(
                         city = city,
-                        onMap = { vm.showMap(city) }
+                        onMap = { vm.showMap(city) },
+                        onRemove = {
+                            vm.deleteCity(city)
+                        }
                         )
                 }
             }
