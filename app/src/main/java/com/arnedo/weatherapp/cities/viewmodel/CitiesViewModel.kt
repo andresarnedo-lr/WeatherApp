@@ -32,7 +32,8 @@ class CitiesViewModel(
                 if (result.isNotEmpty()) {
                     _uiState.update { it.copy(items = result) }
                 } else {
-                    _uiState.update { it.copy(msgRes = R.string.cities_empty_list) }
+                    _uiState.update { it.copy( items = emptyList(),
+                        msgRes = R.string.cities_empty_list) }
                 }
                 _uiState.update { it.copy(inProgress = false) }
             }
