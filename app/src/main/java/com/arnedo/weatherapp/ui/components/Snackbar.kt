@@ -72,8 +72,9 @@ fun MySnackbar(
 private fun MySnackbarPreview(){
     MaterialTheme{
         MySnackbar(msgRes = R.string.app_name, isPreview = true,
-            colorBackground = Color.Yellow,
-            shape = CircleShape
+            colorBackground = Color.White,
+            shape = CircleShape,
+            modifier = Modifier.background(Color.LightGray)
         ){}
     }
 }
