@@ -8,5 +8,5 @@ import org.koin.dsl.module
 val utilsModule = module {
     single{ FormatUtils() }
     single{ NetworkUtils(get()) }
-    single { IntentUtils() }
+    single { IntentUtils(get()) }
 }

@@ -6,6 +6,6 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val citiesModule = module {
-    single { LocalDatabase(get()) }
+    single { LocalDatabase(get(), get()) }
     viewModel { CitiesViewModel(get(), get()) }
 }
