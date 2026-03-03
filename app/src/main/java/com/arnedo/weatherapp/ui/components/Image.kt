@@ -41,7 +41,7 @@ fun MyCoilImage(
         contentDescription = null,
         placeholder = rememberVectorPainter(Icons.Default.Timer),
         error = rememberVectorPainter(Icons.Default.BrokenImage),
-        contentScale = ContentScale.Crop,
+        contentScale = ContentScale.Fit,
         modifier = modifier
             .clip(shape)
     )
