@@ -5,8 +5,8 @@ data class WeatherCity(
     val description: String = "",
     val wind_kph: Float = 0f,
     val iconHttps: String = "",
-    val name : String = "",
-    val country : String = "",
-    val lat : Double = 0.0,
-    val lon : Double = 0.0
+    val name: String = "",
+    val country: String = "",
+    val lat: Double = 0.0,
+    val lon: Double = 0.0
 )
