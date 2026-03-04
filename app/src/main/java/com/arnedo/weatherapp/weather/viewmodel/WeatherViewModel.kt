@@ -1,6 +1,5 @@
 package com.arnedo.weatherapp.weather.viewmodel
 
-import android.util.Log.e
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arnedo.weatherapp.R
