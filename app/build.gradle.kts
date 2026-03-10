@@ -73,6 +73,10 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.ui)
 
+    //Testing
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.mockito.inline)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
