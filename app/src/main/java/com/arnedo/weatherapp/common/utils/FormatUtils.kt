@@ -29,6 +29,7 @@ class FormatUtils {
         }
     }
 
+
     fun weatherCityToCity(weatherCity: WeatherCity): City {
         return City(
             name = weatherCity.name,
