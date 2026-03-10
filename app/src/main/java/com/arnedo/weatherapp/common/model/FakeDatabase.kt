@@ -1,7 +1,11 @@
 package com.arnedo.weatherapp.common.model
 
 import com.arnedo.weatherapp.common.entities.City
+import com.arnedo.weatherapp.common.entities.Condition
+import com.arnedo.weatherapp.common.entities.Current
+import com.arnedo.weatherapp.common.entities.Weather
 import com.arnedo.weatherapp.common.entities.WeatherCity
+import com.arnedo.weatherapp.common.entities.WeatherResponse
 
 /**
  * Project: DI Basics
@@ -44,3 +48,61 @@ fun getAllWeatherCityPreview() = listOf(
     ),
     weatherCityPreview
 )
+
+//Testing
+val weatherTest = Weather(
+    id = 1,
+    temp_c = 10f,
+    iconHttps = "https://cdn.weatherapi.com/weather/64x64/day/116.png",
+    description = "Templado",
+    wind_kph = 8f,
+    cityId = 1
+)
+
+val weatherResponseTest = WeatherResponse(
+    location = City(
+        name = "Málaga",
+        country = "España",
+        lat = 36.72016,
+        lon = -4.42034
+    ),
+    current = Current(
+        temp_c = 29f,
+        condition = Condition(
+            text = "Parcialmente nublado.",
+            icon = "//cdn.weatherapi.com/weather/64x64/day/116.png"
+        ),
+        wind_kph = 13.2f
+    )
+)
+
+val weatherResponseNullIslandTest = WeatherResponse(
+    location = City(
+        name = "Isla Nula",
+        country = "N/A",
+        lat = 0.0,
+        lon = 0.0
+    ),
+    current = Current(
+        temp_c = 29f,
+        condition = Condition(
+            text = "Parcialmente nublado.",
+            icon = "//cdn.weatherapi.com/weather/64x64/day/116.png"
+        ),
+        wind_kph = 13.2f
+    )
+)
+
+val weatherCityTest = WeatherCity(
+    temp_c = 29f,
+    iconHttps = "https://cdn.weatherapi.com/weather/64x64/day/116.png",
+    description="Parcialmente nublado.",
+    wind_kph=13.2f,
+    name="Málaga",
+    country="España",
+    lat=36.72016,
+    lon=-4.42034)
+
+val cityNullIslandTest = City(id = 1, name = "Isla Nula", country = "N/A", lat = 0.0, lon = 0.0)
+
+val weatherCityNullIslandTest = weatherCityTest.copy(name = "Isla Nula", country = "N/A", lat = 0.0, lon = 0.0)
