@@ -14,6 +14,8 @@ materialIconsExtended = "1.7.8"
 foundationLayout = "1.10.0"
 coilCompose = "3.3.0"
 ksp = "2.3.4"
+mockitoInline = "5.2.0"
+mockitoKotlin = "6.2.3"
 roomRuntime = "2.8.4"
 converterGson = "3.0.0"
 retrofit = "3.0.0"
@@ -46,6 +48,8 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 androidx-room-coroutines = {module = "androidx.room:room-ktx", version.ref = "roomRuntime"}
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
+mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInline" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlin" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
