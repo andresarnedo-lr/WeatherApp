@@ -76,6 +76,14 @@ dependencies {
     //Testing
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.mockito.inline)
+    //Coroutines
+    testImplementation(libs.kotlinx.coroutines.test)
+    // Koin Test features
+    testImplementation(libs.koin.test)
+    // Koin for JUnit 4
+    testImplementation(libs.koin.test.junit4)
+    //Mockk
+    testImplementation(libs.mockk)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
