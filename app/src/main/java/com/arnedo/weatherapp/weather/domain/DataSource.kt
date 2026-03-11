@@ -21,12 +21,16 @@ class DataSource(
         name: String,
         onResult : (WeatherCity?) -> Unit) {
         try {
-            rdb.searchWeatherByName(name) { result ->
-                onResult(
-                    formatUtils.responseToWeatherCity(
-                        result
+            if(name.isEmpty()){
+                onResult(null)
+            } else {
+                rdb.searchWeatherByName(name) { result ->
+                    onResult(
+                        formatUtils.responseToWeatherCity(
+                            result
+                        )
                     )
-                )
+                }
             }
         } catch (e: Exception) {
             onResult(null)
@@ -37,6 +41,7 @@ class DataSource(
         weatherCity: WeatherCity,
         onResult : (Boolean) -> Unit)
     = ldb.addWeatherAndCity(weatherCity){onResult(it)}
+
 
     suspend fun getWeatherByCity(city : City, onResult : (WeatherCity?) -> Unit) {
         try {
