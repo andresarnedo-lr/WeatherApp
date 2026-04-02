@@ -1,15 +1,11 @@
 # WeatherApp - Android Portfolio Project 🌦️
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/94728c41-3ffb-4359-b492-6a0c49509dae" width="280" controls muted autoplay loop>
-  </video>
-</p>
-
 **WeatherApp** es una aplicación moderna de clima diseñada para ofrecer pronósticos en tiempo real con una experiencia de usuario fluida. Este proyecto representa mi trabajo final integrador, donde apliqué conceptos avanzados de desarrollo nativo en Android.
 
 🎬 Demo
 <p align="center">
-<img src="screenshots/recording_speed_weatherApp.mp4" width="280" alt="WeatherApp Demo"/>
+  <video src="https://github.com/user-attachments/assets/94728c41-3ffb-4359-b492-6a0c49509dae" width="280" controls muted autoplay loop>
+  </video>
 </p>
 <p align="center">
 Desarrollado por <b>Arnedo Andres Alfredo</b>
