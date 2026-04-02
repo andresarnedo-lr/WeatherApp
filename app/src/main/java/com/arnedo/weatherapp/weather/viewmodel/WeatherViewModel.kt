@@ -18,16 +18,16 @@ class WeatherViewModel(private val ds : DataSource) : ViewModel() {
     val uiState: StateFlow<WeatherUiState> = _uiState.asStateFlow()
 
     init {
-        getAllCities()
+        getAllCitiesRealtime()
     }
 
-    private fun getAllCities() {
-        executeAction {
-            ds.getAllCities { result ->
+    private fun getAllCitiesRealtime() {
+        viewModelScope.launch {
+            ds.getAllCitiesRealtime().collect { result ->
                 if (result.isNotEmpty()) {
                     _uiState.update { it.copy(items = result) }
                 } else {
-                    _uiState.update { it.copy(msgRes = R.string.weather_empty_list) }
+                    _uiState.update { it.copy(items = emptyList(), msgRes = R.string.weather_empty_list) }
                 }
             }
         }
@@ -55,7 +55,6 @@ class WeatherViewModel(private val ds : DataSource) : ViewModel() {
                         msgRes = R.string.weather_local_save_success,
                         data = WeatherCity()
                     ) }
-                    getAllCities()
 
                 } else {
                     _uiState.update { it.copy(msgRes = R.string.weather_local_save_error) }
