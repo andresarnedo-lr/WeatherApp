@@ -8,7 +8,7 @@
 
 🎬 Demo
 <p align="center">
-<img src="screenshots/recording_speed_weatherApp" width="280" alt="WeatherApp Demo"/>
+<img src="screenshots/recording_speed_weatherApp.mp4" width="280" alt="WeatherApp Demo"/>
 </p>
 <p align="center">
 Desarrollado por <b>Arnedo Andres Alfredo</b>
