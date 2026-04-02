@@ -6,6 +6,13 @@
 
 **WeatherApp** es una aplicación moderna de clima diseñada para ofrecer pronósticos en tiempo real con una experiencia de usuario fluida. Este proyecto representa mi trabajo final integrador, donde apliqué conceptos avanzados de desarrollo nativo en Android.
 
+🎬 Demo
+<p align="center">
+<img src="screenshots/recording_speed_weatherApp" width="280" alt="WeatherApp Demo"/>
+</p>
+<p align="center">
+Desarrollado por <b>Arnedo Andres Alfredo</b>
+</p>
 ---
 
 ## 🛠️ Tech Stack & Herramientas
@@ -40,25 +47,13 @@ Sigue estos pasos para ejecutar el proyecto localmente:
    ```bash
    git clone [https://github.com/andresarnedo-/WeatherApp.git](https://github.com/andresarnedo-/WeatherApp.git)
    Obtener API KEY:
-Regístrate de forma gratuita en WeatherAPI para obtener tu llave.
-
-Configuración:
-Agrega tu llave en el archivo Constants.kt:
-
-const val API_KEY = "TU_LLAVE_AQUÍ"
+   Regístrate de forma gratuita en WeatherAPI para obtener tu llave.
+   Configuración:
+   Agrega tu llave en el archivo Constants.kt:
+   const val API_KEY = "TU_LLAVE_AQUÍ"
 
 🧠 Desafíos Técnicos y Aprendizajes
 Sincronización de Datos: Logré integrar la respuesta de la API con la base de datos local (Room), asegurando que el usuario tenga acceso rápido a sus ciudades guardadas incluso tras reiniciar la app.
-
+<br>
 Componentes Reutilizables: Diseñé un sistema de componentes en Compose bajo el principio DRY (Don't Repeat Yourself), facilitando la escalabilidad y el mantenimiento del código.
 
-🎬 Demo
-<p align="center">
-<img src="" width="280" />
-</p>
-
-<p align="center">
-Desarrollado por <b>Arnedo Andres Alfredo</b>
-</p>
-<br>
-<img width="72" height="72" alt="image" src="https://github.com/user-attachments/assets/477aef41-0c71-41f3-a908-ebca9f8c42f8" />
