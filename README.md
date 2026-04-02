@@ -1,8 +1,7 @@
 # WeatherApp - Android Portfolio Project 🌦️
 
 <p align="center">
-  <video src="screenshots/demo" width="280" controls muted autoplay loop>
-    Tu navegador no soporta el elemento de video.
+  <video src="https://github.com/user-attachments/assets/94728c41-3ffb-4359-b492-6a0c49509dae" width="280" controls muted autoplay loop>
   </video>
 </p>
 
