@@ -6,6 +6,7 @@ import com.arnedo.weatherapp.common.utils.FormatUtils
 import com.arnedo.weatherapp.common.utils.NetworkUtils
 import com.arnedo.weatherapp.weather.model.LocalDatabase
 import com.arnedo.weatherapp.weather.model.RemoteDatabase
+import kotlinx.coroutines.flow.Flow
 
 class DataSource(
     private val rdb : RemoteDatabase,
@@ -13,6 +14,8 @@ class DataSource(
     private val utils : NetworkUtils,
     private val formatUtils: FormatUtils
 ) {
+
+    fun getAllCitiesRealtime(): Flow<List<City>> = ldb.getAllCitiesRealtime()
 
     suspend fun getAllCities(onResult:(List<City>) -> Unit)
     = ldb.getAllCities{ onResult(it)}
