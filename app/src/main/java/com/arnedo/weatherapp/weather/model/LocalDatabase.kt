@@ -8,6 +8,7 @@ import com.arnedo.weatherapp.common.model.WeatherCityDao
 import com.arnedo.weatherapp.common.model.WeatherDao
 import com.arnedo.weatherapp.common.utils.FormatUtils
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 
 class LocalDatabase(
@@ -16,6 +17,8 @@ class LocalDatabase(
     private val  utils: FormatUtils,
     private val weatherCityDao: WeatherCityDao
 ) {
+    fun getAllCitiesRealtime(): Flow<List<City>> = cityDao.getAllCitiesRealtime()
+
     suspend fun getAllCities(onResult:(List<City>) -> Unit) = withContext(Dispatchers.IO){
         onResult(cityDao.getAllCities())
     }
