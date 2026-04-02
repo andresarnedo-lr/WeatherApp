@@ -121,7 +121,6 @@ private fun WeatherInfoCard(weatherCity: WeatherCity){
                 style = Typography.bodyMedium,
                 color = TextSecondary
             )
-
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
